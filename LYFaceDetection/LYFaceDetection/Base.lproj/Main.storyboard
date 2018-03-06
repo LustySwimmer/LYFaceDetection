@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tuy-2U-ZUi">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="jAo-VI-exI">
+            <objects>
+                <viewController id="Tuy-2U-ZUi" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9ga-ek-QYl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dvb-oP-qa8" customClass="FaceDetectionView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Crw-1i-A8v">
+                                <rect key="frame" x="109.5" y="617" width="156" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sm-GQ-ucB">
+                                        <rect key="frame" x="0.0" y="0.0" width="89" height="30"/>
+                                        <state key="normal" title="StartCapture"/>
+                                        <connections>
+                                            <action selector="startCapture" destination="Tuy-2U-ZUi" eventType="touchUpInside" id="DMQ-nP-6IP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nI7-Zs-aQa">
+                                        <rect key="frame" x="109" y="0.0" width="47" height="30"/>
+                                        <state key="normal" title="Switch"/>
+                                        <connections>
+                                            <action selector="switchCamera" destination="Tuy-2U-ZUi" eventType="touchUpInside" id="xJ8-Ls-bgj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Crw-1i-A8v" firstAttribute="centerX" secondItem="9ga-ek-QYl" secondAttribute="centerX" id="KjR-9I-Qwz"/>
+                            <constraint firstItem="d1Z-uN-aCf" firstAttribute="trailing" secondItem="Dvb-oP-qa8" secondAttribute="trailing" id="QMI-Df-NbA"/>
+                            <constraint firstItem="d1Z-uN-aCf" firstAttribute="bottom" secondItem="Dvb-oP-qa8" secondAttribute="bottom" id="QRi-PJ-OHR"/>
+                            <constraint firstItem="Dvb-oP-qa8" firstAttribute="leading" secondItem="d1Z-uN-aCf" secondAttribute="leading" id="WoX-c6-qkU"/>
+                            <constraint firstItem="d1Z-uN-aCf" firstAttribute="bottom" secondItem="Crw-1i-A8v" secondAttribute="bottom" constant="20" id="f8q-bh-tgi"/>
+                            <constraint firstItem="Dvb-oP-qa8" firstAttribute="top" secondItem="d1Z-uN-aCf" secondAttribute="top" id="oG8-rO-fcr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="d1Z-uN-aCf"/>
+                    </view>
+                    <connections>
+                        <outlet property="faceDetectionView" destination="Dvb-oP-qa8" id="QeE-ae-YJh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sDa-NW-JtO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1136.8" y="9.4452773613193415"/>
+        </scene>
+    </scenes>
+</document>
