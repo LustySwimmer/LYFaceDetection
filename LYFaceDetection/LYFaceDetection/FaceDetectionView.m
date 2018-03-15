@@ -258,9 +258,12 @@ static GLint glViewAttributes[NUM_ATTRIBUTES];
         
     }
     
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_BLEND);
     glClearColor(0, 0, 0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
     
+    glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
     [self.shaderManager useProgram];
     glUniform1i(glViewUniforms[UNIFORM_Y], 0);
     glUniform1i(glViewUniforms[UNIFORM_UV], 1);
@@ -360,12 +363,19 @@ static GLint glViewAttributes[NUM_ATTRIBUTES];
         0, 1,
         1, 1
     };
-    
     glVertexAttribPointer(glViewAttributes[ATTRIB_TEMP_TEXCOORD], 2, GL_FLOAT, GL_FALSE, 0, quadTextureData);
     glEnableVertexAttribArray(glViewAttributes[ATTRIB_TEMP_TEXCOORD]);
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     dispatch_semaphore_signal(_lock);
+}
+
+- (UIImage *)snapshot {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
+    [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:NO];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 - (void)cleanUpTextures {

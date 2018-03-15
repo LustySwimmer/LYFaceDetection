@@ -33,14 +33,12 @@
 - (IBAction)switchCamera {
     if (!self.cameraManager) { return; }
     [self.cameraManager switchCamera];
+    [self animationCamera];
 }
 
 - (IBAction)screenshot {
     if (!self.cameraManager) { return; }
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    [self.faceDetectionView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+    UIImage *image = [self.faceDetectionView snapshot];
     if (image) {
         ALAuthorizationStatus authStatus = [ALAssetsLibrary authorizationStatus];
         if (authStatus == ALAuthorizationStatusRestricted || authStatus == ALAuthorizationStatusDenied){
@@ -53,6 +51,15 @@
             }
         }];
     }
+}
+
+- (void)animationCamera {
+    CATransition *animation = [CATransition animation];
+    animation.duration = .5f;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animation.type = @"oglFlip";
+    animation.subtype = kCATransitionFromRight;
+    [self.faceDetectionView.layer addAnimation:animation forKey:nil];
 }
 
 #pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate

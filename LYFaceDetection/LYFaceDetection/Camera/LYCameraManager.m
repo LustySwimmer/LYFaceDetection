@@ -12,7 +12,6 @@
     dispatch_queue_t processQueue;
 }
 
-
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 
 @property (nonatomic, strong) AVCaptureDeviceInput *captureDeviceInput;

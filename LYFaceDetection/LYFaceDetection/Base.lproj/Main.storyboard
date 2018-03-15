@@ -23,7 +23,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Crw-1i-A8v">
-                                <rect key="frame" x="109.5" y="617" width="156" height="30"/>
+                                <rect key="frame" x="60" y="617" width="255" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sm-GQ-ucB">
                                         <rect key="frame" x="0.0" y="0.0" width="89" height="30"/>
@@ -37,6 +37,13 @@
                                         <state key="normal" title="Switch"/>
                                         <connections>
                                             <action selector="switchCamera" destination="Tuy-2U-ZUi" eventType="touchUpInside" id="xJ8-Ls-bgj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVN-vH-RA2">
+                                        <rect key="frame" x="176" y="0.0" width="79" height="30"/>
+                                        <state key="normal" title="Screenshot"/>
+                                        <connections>
+                                            <action selector="screenshot" destination="Tuy-2U-ZUi" eventType="touchUpInside" id="r9u-KC-m2g"/>
                                         </connections>
                                     </button>
                                 </subviews>

@@ -12,4 +12,6 @@
 
 - (void)displayPixelBuffer:(CVPixelBufferRef)pixelBuffer;
 
+- (UIImage *)snapshot;
+
 @end

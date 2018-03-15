@@ -12,6 +12,7 @@
 
 + (void)detectCVPixelBuffer:(CVPixelBufferRef)pixelBuffer completionHandler:(void (^)(CIFaceFeature *, CIImage *))completion {
     if (pixelBuffer) {
+//        [[CIImage alloc] initWithImage:image];
         CIImage *ciImage = [[CIImage alloc] initWithCVPixelBuffer:pixelBuffer];
         NSString *accuracy = CIDetectorAccuracyLow;
         NSDictionary *options = [NSDictionary dictionaryWithObject:accuracy forKey:CIDetectorAccuracy];
